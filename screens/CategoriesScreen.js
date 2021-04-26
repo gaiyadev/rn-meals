@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   View,
   Text,
@@ -7,30 +8,23 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { CATEGORIES } from "../data/dummy-data";
+import CategoryGrid from "../components/CategoryGrid";
 
 const CategoriesScreen = (props) => {
   const { navigation } = props;
-
   const renderItem = (itemData) => {
     return (
-      <TouchableOpacity
-        style={styles.gridItem}
-        onPress={() => {
-          navigation.navigate("CategoriesMealScreen", {
-            categoryId: itemData.item.id,
-            title: itemData.item.title,
-          });
-        }}
-      >
-        <View>
-          <Text>{itemData.item.title}</Text>
-        </View>
-      </TouchableOpacity>
+      <CategoryGrid
+        id={itemData.item.id}
+        title={itemData.item.title}
+        navigation={navigation}
+        color={itemData.item.color}
+      />
     );
   };
   return (
     <FlatList
-      keyExtractor={(item, index) => item.id}
+      keyExtractor={(item) => item.id}
       data={CATEGORIES}
       numColumns={2}
       renderItem={renderItem}
@@ -44,13 +38,6 @@ const styles = StyleSheet.create({
     height: 150,
     justifyContent: "center",
     alignItems: "center",
-  },
-  gridItem: {
-    flex: 1,
-    height: 150,
-    justifyContent: "center",
-    alignItems: "center",
-    margin: 12,
   },
 });
 

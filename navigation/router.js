@@ -21,7 +21,8 @@ const MealsStack = () => {
               backgroundColor:
                 Platform.OS === "android" ? Colors.primaryColor : "",
             },
-            headerTintColor: "#fff",
+            headerTintColor:
+              Platform.OS === "android" ? "#fff" : Colors.SecondaryColor,
             headerTitleStyle: {
               fontWeight: "bold",
             },
@@ -36,7 +37,8 @@ const MealsStack = () => {
               backgroundColor:
                 Platform.OS === "android" ? Colors.primaryColor : "",
             },
-            headerTintColor: "#fff",
+            headerTintColor:
+              Platform.OS === "android" ? "#fff" : Colors.SecondaryColor,
             headerTitleStyle: {
               fontWeight: "bold",
             },
@@ -45,17 +47,18 @@ const MealsStack = () => {
         <Stack.Screen
           name="MealDetailScreen"
           component={MealDetailScreen}
-          options={{
-            title: "Details",
+          options={({ route }) => ({
+            title: route.params.params.title,
             headerStyle: {
               backgroundColor:
                 Platform.OS === "android" ? Colors.primaryColor : "",
             },
-            headerTintColor: "#fff",
+            headerTintColor:
+              Platform.OS === "android" ? "#fff" : Colors.SecondaryColor,
             headerTitleStyle: {
               fontWeight: "bold",
             },
-          }}
+          })}
         />
       </Stack.Navigator>
     </NavigationContainer>
