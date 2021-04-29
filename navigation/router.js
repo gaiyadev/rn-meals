@@ -70,7 +70,7 @@ const MealsStack = () => {
       <Stack.Screen
         name="MealDetailScreen"
         component={MealDetailScreen}
-        options={({ route }) => ({
+        options={({ route, navigation }) => ({
           title: route.params.params.title,
           headerStyle: {
             backgroundColor:
@@ -86,10 +86,8 @@ const MealsStack = () => {
             <HeaderButtons HeaderButtonComponent={HeaderButton}>
               <Item
                 title="Fav"
-                iconName="star"
-                onPress={() => {
-                  console.log("fav pressd");
-                }}
+                iconName={route.params.isFav ? "star" : "coffee"}
+                onPress={route.params.query}
               ></Item>
             </HeaderButtons>
           ),
@@ -243,7 +241,10 @@ const HomeStackScreen = () => {
                 title="Save"
                 iconName="save"
                 onPress={() => {
-                  console.log("saving sittings", navigation.getParam("query"));
+                  console.log(
+                    "saving sittings",
+                    navigation.getParam("query")()
+                  );
                 }}
               ></Item>
             </HeaderButtons>
