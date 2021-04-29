@@ -107,7 +107,8 @@ const MealsStack = () => {
             Platform.OS === "android" ? "#fff" : Colors.SecondaryColor,
           headerTitleStyle: {
             fontWeight: "bold",
-            fontFamily: "OpenSansRegular",
+            fontFamily:
+              Platform.OS === "android" ? "OpenSansRegular" : "OpenSansRegular",
           },
         })}
       />

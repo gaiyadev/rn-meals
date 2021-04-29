@@ -1,4 +1,4 @@
-import { TOGGLE_FAVORITE } from "../actions/types";
+import { TOGGLE_FAVORITE, SET_FILTERS } from "../actions/types";
 
 export const toggleFavorite = (id) => {
   return {
@@ -6,6 +6,14 @@ export const toggleFavorite = (id) => {
     mealId: id,
   };
 };
+
+export const setFilter = (filterSittings) => {
+  return {
+    type: SET_FILTERS,
+    filters: filterSittings,
+  };
+};
+
 // export const addFav = (item) => (dispatch, getState) => {
 //     axios
 //       .post("/api/items", item, tokenConfig(getState))
